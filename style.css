@@ -1,0 +1,235 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+:root {
+  --color-background: #282a37;
+  --color-system-logo: #6087ae;
+  --color-folder-path: #cca8fb;
+  --color-github-info: #5cf58d;
+  --color-system: #ff91d0;
+  --color-timestamp: #6187ac;
+  --color-cursor: #cb266d;
+  --color-text-regular: #d3d7d0;
+  --color-text-bold: #ffffff;
+  --color-text-selection: #0051ad;
+}
+
+@font-face {
+  font-family: "MesloLGS NF";
+  src: url('font/MesloLGS-NF-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MesloLGS NF";
+  src: url('font/MesloLGS-NF-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "MesloLGS NF";
+  src: url('font/MesloLGS-NF-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MesloLGS NF";
+  src: url('font/MesloLGS-NF-Bold-Italic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 15px 20px;
+  min-height: 99%;
+  width: 100%;
+  min-width: 550px;
+  color: var(--color-text-regular);
+  background: var(--color-background);
+  font-family: "MesloLGS NF";
+  overflow-x: hidden;
+}
+::selection {
+  color: var(--color-text-bold);
+  background-color: var(--color-text-selection);
+}
+::-moz-selection {
+  color: var(--color-text-bold);
+  background-color: var(--color-text-selection);
+}
+textarea {
+  left: -1000px;
+  position: absolute;
+}
+b {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* powerlevel10k rainbow style */
+#pl10k {
+  display: flex;
+  margin-right: 20px;
+}
+#pl10k #pl10k_logo,
+#pl10k #pl10k_path,
+#pl10k #pl10k_git {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:22px;
+  position:relative;
+  text-align:center;
+  line-height:1.5em;
+  font-size: 13px;
+}
+#pl10k #pl10k_logo {
+  background-color:var(--color-system-logo);
+  color:var(--color-text-bold);
+  width:25px;
+}
+#pl10k #pl10k_path {
+  background-color:var(--color-folder-path);
+  color:var(--color-background);
+  width:220px;
+}
+#pl10k #pl10k_git {
+  background-color:var(--color-github-info);
+  color:var(--color-background);
+  width:110px;
+}
+#pl10k #pl10k_logo::after,
+#pl10k #pl10k_path::after,
+#pl10k #pl10k_git::after {
+  content:"";
+  position:absolute;
+  height:0;
+  width:0;
+  left:100%;
+  top:0;
+  border:11px solid transparent;
+}
+#pl10k #pl10k_logo::after {
+  border-left: 11px solid var(--color-system-logo);
+  z-index: 999;
+}
+#pl10k #pl10k_path::after {
+  border-left: 11px solid var(--color-folder-path);
+  z-index: 998;
+}
+#pl10k #pl10k_git::after {
+  border-left: 11px solid var(--color-github-info);
+  z-index: 997;
+}
+/* end powerlevel10k rainbow style */
+
+/* Cursor Start */
+.cursor {
+  font-size: 12px;
+  color: var(--color-cursor);
+  background-color: var(--color-cursor);
+  position: relative;
+  opacity: 1;
+  height: 24px;
+  width: 10px;
+  max-width: 10px;
+  /* transform: translateY(4px); */
+  overflow: hidden;
+  text-indent: -5px;
+  display: inline-block;
+  text-decoration: blink;
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+#command {
+  cursor: text;
+  height: 50px;
+  color: var(--color-text-regular);
+}
+#liner {
+  display: flex;
+  line-height: 1.5em;
+  margin-top: -2px;
+  animation: show 0.5s ease forwards;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Cursor End */
+
+p {
+  display: block;
+  line-height: 1.5em;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 0.05em;
+  animation: typing 0.5s steps(30, end);
+}
+.no-animation {
+  animation: typing 0 steps(30, end);
+  color: var(--color-system);
+}
+.margin {
+  margin-left: 20px;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.index {
+  color: var(--color-text-bold);
+}
+.color1 {
+  color: var(--color-text-regular);
+}
+.color2 {
+  color: var(--color-folder-path);
+}
+.color3 {
+  color: var(--color-github-info);
+}
+.command {
+  color: var(--color-cursor);
+  text-shadow: 0 0 7px var(--color-cursor);
+}
+.error {
+  color: var(--color-folder-path);
+}
+.white {
+  color: var(--color-text-bold);
+}
+.inherit,
+a {
+  color: var(--color-github-info);
+}
+a {
+  text-decoration: inherit;
+}
+a:hover {
+  background: var(--color-text-selection);
+  color: var(--color-cursor);
+}
+a:focus {
+  outline: 0;
+}
